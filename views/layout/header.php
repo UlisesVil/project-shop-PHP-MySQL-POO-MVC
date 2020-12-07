@@ -15,9 +15,9 @@ session_start();
 <!-- CABECERA -->
 <header id="header">
     <div id="logo">
-        <img class="logo" src="<?=base_url?>assets/img/logo.jpg" alt="Shop Logo"/>
+        <img class="logo" src="<?=base_url?>assets/img/logo.png" alt="Shop Logo"/>
         <a class="linklogo" href="<?=base_url?>">
-            <img class="title" src="<?=base_url?>assets/img/shoptitle.jpg" alt="Shop Title"/>
+            <img class="title" src="<?=base_url?>assets/img/shoptitle.png" alt="Shop Title"/>
         </a>
     </div>
 

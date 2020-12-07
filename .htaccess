@@ -3,8 +3,8 @@
 
 RewriteEngine on
 
-#ErrorDocument 404 http://ulisestore.atwebpages.com/error/
-ErrorDocument 404 http://localhost/master-php/tienda/error/
+ErrorDocument 404 http://ulisestore.atwebpages.com/error/
+#ErrorDocument 404 http://localhost/master-php/tienda/error/
 #ErrorDocument 404 https://ulises-webstore.000webhostapp.com/error/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
