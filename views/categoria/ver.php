@@ -9,7 +9,7 @@ ini_set('display_errors', '1');
         <p>No hay productos Para Mostrar</p>
     <?php else: ?>  
 
-
+        <div class="global">
         <?php while ($product = $productos->fetch_object()): ?>
 
             <div class="product">
@@ -27,7 +27,7 @@ ini_set('display_errors', '1');
             </div>
 
         <?php endwhile; ?>
-
+</div>
 
     <?php endif; ?>
 <?php else: ?>
