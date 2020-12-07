@@ -15,9 +15,9 @@ session_start();
 <!-- CABECERA -->
 <header id="header">
     <div id="logo">
-        <img src="<?=base_url?>assets/img/camiseta.png" alt="Camiseta Logo"/>
-        <a href="<?=base_url?>">
-            Tienda de Camisetas
+        <img class="logo" src="<?=base_url?>assets/img/logo.jpg" alt="Shop Logo"/>
+        <a class="linklogo" href="<?=base_url?>">
+            <img class="title" src="<?=base_url?>assets/img/shoptitle.jpg" alt="Shop Title"/>
         </a>
     </div>
 

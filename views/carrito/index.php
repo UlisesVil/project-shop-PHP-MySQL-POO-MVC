@@ -39,9 +39,9 @@ ini_set('display_errors', '1');
                 </td>
                 <td>
                     <div class="updown-unidades">
-                        <a href="<?=base_url?>carrito/up&index=<?=$indice?>" class="button">+</a>
+                        <a href="<?=base_url?>carrito/up&index=<?=$indice?>" class="button plus">+</a>
                         <?= $elemento['unidades'] ?>
-                        <a href="<?=base_url?>carrito/down&index=<?=$indice?>" class="button">-</a>
+                        <a href="<?=base_url?>carrito/down&index=<?=$indice?>" class="button min">-</a>
                     </div>
                 </td>
                 <td>
@@ -54,13 +54,13 @@ ini_set('display_errors', '1');
     </table>
 
     <div class="delete-carrito">
-        <a href="<?=base_url?>carrito/delete_all" class="button button-delete button-red">Vaciar carrito</a>
+        <a href="<?=base_url?>carrito/delete_all" class="button button-carrito button-red">Vaciar carrito</a>
     </div>
 
     <div class="total-carrito">
         <?php $stats = Utils::statsCarrito();?>
         <h3>Precio total: $ <?=$stats['total']?></h3>
-        <a href="<?=base_url?>pedido/hacer" class="button button-pedido">Hacer pedido</a>
+        <a href="<?=base_url?>pedido/hacer" class="button-create">Hacer pedido</a>
     </div>
 <?php else: ?>
 <p>El carrito esta vacio añade algun producto</p>

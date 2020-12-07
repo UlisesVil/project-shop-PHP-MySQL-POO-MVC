@@ -1,22 +1,45 @@
 /*GENERALES*/
+@font-face {
+font-family: cinzelbold;
+src: url(../fonts/cinzelbold.ttf);
+}
+@font-face {
+font-family: cinzelregular;
+src: url(../fonts/cinzelregular.ttf);
+}
+@font-face {
+font-family: frederick;
+src: url(../fonts/frederick.ttf);
+}
+@font-face {
+font-family: grupporegular;
+src: url(../fonts/grupporegular.ttf);
+}
+@font-face {
+font-family: racingsansoneregular;
+src: url(../fonts/racingsansoneregular.ttf);
+}
+@font-face {
+font-family: shadowsIntolighttworegular;
+src: url(../fonts/shadowsIntolighttworegular.ttf);
+}
+
 
 *{
     padding: 0px;
     margin: 0px;
-    font-family: sans-serif, Helvetica, Arial;
+    font-family: grupporegular;
 }
 
 body{
-    background: url('../img/bg.png');
+    background: url('../img/patron2.jpg');
 }
 
 a{
-    color:#01B1EA;
+    color:black;
 }
 
-a:visited{
-    color:#01B1EA;
-}
+
 
 a:hover{
     color:#555555;
@@ -61,19 +84,26 @@ td{
 
 #header{
     height: 145px;
-    background: #F0F0F0;
+    background:  linear-gradient(138deg, rgba(255,255,255,1) 44%, rgba(0,0,0,1) 100%);
 }
 
 #logo{
-    padding: 20px;
+    padding: 10px;
     margin-left: 20px;
+}
+
+#logo .logo{
+    width: 150px;
     float: left;
 }
 
-#logo img{
-    width: 100px;
+#logo .title{
+    width: 200px;
     float: left;
+    margin-top: 31px;
 }
+
+
 
 #logo a{
     float: left;
@@ -98,10 +128,14 @@ td{
 
 #menu{
     clear: both;
-    background: #222;
-    color: white;
-    height: 55px;
-    border-bottom: 4px solid #01B1EA;
+    background: white;
+    color: black;
+    min-height: 30px;
+    height: content-box;
+    border-bottom: 4px solid black;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #menu ul{
@@ -112,13 +146,16 @@ td{
 }
 
 #menu ul li{
-    line-height: 55px;
+    line-height: 30px;
     float: left;
-    border-right: 1px solid #363636;
+    
+    font-weight: bold;
 }
 
 #menu a{
-    color: white;
+    font-family: cinzelbold;
+    font-weight: bold;
+    color: black;
     text-decoration: none;
     display: block;
     padding-left: 12px;
@@ -126,12 +163,18 @@ td{
     transition: all 300ms;
 }
 
-#menu a:first-child{  /*solo aplica al primer elemento de la lista*/
+/*solo aplica al primer elemento de la lista*/
+/*
+#menu a:first-child{  
     border-left: 1px solid #363636;
 }
-
+*/
 #menu a:hover{
-    background: #01B1EA;
+    background: black;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-weight: bold;
 }
 
 /*CONTENT*/
@@ -143,7 +186,7 @@ td{
 
 /*BARRA LATERAL*/
 #lateral{
-    width: 22%;
+    width: 18%;
     min-height: 500px;
     float: left;
     margin-top: 20px;
@@ -163,14 +206,14 @@ td{
     display: block;
     color: #222;
     width: 100%;
-    text-align: center;
     padding-top: 2px;
     padding-bottom: 2px;
     margin-bottom: 15px;
+    font-family: cinzelbold;
     font-size: 16px;
     font-weight: bold;
-    background: #E1E1E1;
-    border-bottom: 2px solid #01B1EA;
+    background: white;
+    border-bottom: 2px solid black;
 }
 
 #lateral ul{
@@ -183,6 +226,7 @@ td{
     margin-left: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-weight: bold;
 }
 
 /*FORMS*/
@@ -227,21 +271,48 @@ input [type="button"],
 input[type="submit"],
 button, .button{
     display: block;
-    border-radius: 2px;
+    border-radius: 10px;
     width: auto;
     padding: 5px;
     padding-left: 10px;
-    padding-right: 10px; 
-    color: white;
-    background: #2979CD;
-    border: 1px solid #11608E;
+    padding-right: 10px;
+    background: black;
+    border: 1px solid black;
     cursor: pointer;
+    font-family: grupporegular;
+    font-size: 15px;
+    color: white;
+        
 }
 
-.button{
-    background: #33AE3D;
-    color: white !important;
+label{
+    font-family: grupporegular;
+    font-size: 15px;
+    font-weight: bold; 
+}
+
+table tr, table th, table td{
+    font-family: grupporegular;
+    font-size: 18px;
+    font-weight: bold; 
+}
+
+table td a{
     text-decoration: none;
+    color: red;
+}
+.button{
+    background: black;
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.product .button:hover{
+    background: #0ec5d8;
+    color: black !important;
 }
 
 label,
@@ -265,15 +336,20 @@ button{
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
+    font-size: 13px;
+    background: #0ec5d8;
+    color: white;
+    border: none;
 }
 .button-red{
     background: red;
-    border: 1px solid orange;
+    border: none;
+    color: white;
 }
 
 /*CENTRAL*/
 #central{
-    width: 72%;
+    width: 75%;
     min-height: 500px;
     float: right;
     border-left: 1px solid #ccc;
@@ -282,8 +358,9 @@ button{
 }
 
 #central h1{
-    font-size: 24px;
-    font-weight: normal;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: grupporegular;
     letter-spacing: 1px;
     text-align: center;
     border-bottom: 1px solid #ccc;
@@ -296,16 +373,22 @@ button{
 
 /*PRODUCTOS*/
 
+.global{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .product{
     width: 30%;
-    
+    min-width: 240px;
     float: left;
     margin-bottom: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    /*border-right: 1px solid #ccc;*/
-    /*border: 1px solid red;*/
+    justify-content: center;
     
 }
 
@@ -317,6 +400,18 @@ button{
 .product a:hover{
     color: #555;
 }
+
+#carrito ul li,
+#login ul li{
+    list-style: none;
+}
+
+#carrito ul li a,
+#login ul li a{
+    text-decoration: none;
+    font-family: grupporegular;
+}
+
 
 .product img{
     height: 200px;
@@ -330,14 +425,16 @@ button{
 }
 
 .product h2{
-    font-size: 18px;
+    font-size: 23px;
     margin-bottom: 10px;
+    font-family: grupporegular;
     
 }
 .product p{
     font-weight: bold;
     color: #555;
    margin-bottom: 10px;
+   font-family: grupporegular;
 }
 
 #detail-product{
@@ -387,8 +484,9 @@ button{
     padding-top: 10px;
     padding-bottom: 10px;
     color: white;
-    background: #222222;
-    border-top: 4px solid #01B1EA;
+    background: black;
+    text-align: right;
+    padding-right: 20px;
 }
 
 /*CARRITO*/
@@ -416,9 +514,11 @@ button{
 }
 
 .total-carrito{
-    width: 295px;
+    width: 350px;
+    min-width: 350px;
     float: right;
-    margin-top: 10px;
+    margin-top: 10px
+        
    
 }
 .total-carrito h3{
@@ -427,28 +527,114 @@ button{
     float: left;
     
 }
-.button-pedido{
+.button-create{
     display: block;
-    width: 100px;
-    /*text-align: center;*/
-    /*margin-top: 10px;*/
     float: right;
+    border-radius: 10px;
+    width: 150px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #0ec5d8;
+    cursor: pointer;
+    font-family: grupporegular;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
 }
+
+
 
 .updown-unidades{
     width: 40%;
-    margin: 0px auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
     text-align: center;
  }
  
-
 
 .updown-unidades .button{
     display: inline-block;
     width: 20px;
     float: left;
     padding: 0px;
-    margin: 3px;
+    margin: 3px auto;
+    background: white;
+    color: black !important;
     
+}
+
+
+@media screen and (max-width: 1115px){
+    
+    #header{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        padding: 0px;
+    }
+
+    #logo .logo{
+        width: 150px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+    }
+
+    #logo .title{
+        width: 200px;
+        margin: 0px;
+        padding: 0px;
+        clear: both;
+        
+    }
+    
+    #logo a{
+        margin: 0px;
+         clear: both;
+    }
+    
+    #menu{
+    clear: both;
+    height: content-box;
+    border-bottom: 4px solid black;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    
+    }
+    
+  
+
+}
+@media screen and (max-width: 1115px){
+
+    #lateral{
+        width: 100%;
+        min-height: 250px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0px;
+        /*border: 1px solid red;*/
+    }
+    
+    #lateral .block_aside{
+    width: 200px;
+    padding: 10px;
+    margin: 0px auto;
+    /*border: 1px solid black;*/
+}
+    
+    #central{
+        width: 100%;
+        padding: 0px
+            
+    }
+
+
+
 }
 

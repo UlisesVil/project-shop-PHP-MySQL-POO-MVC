@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 
 <h1>Gestion de Productos</h1>
 
-<a href="<?=base_url?>producto/crear" class="button button-small">
+<a href="<?=base_url?>producto/crear" class="button-create">
     Crear Producto
 </a>
 

@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
 
-<a href="<?=base_url?>categoria/crear" class="button button-small">
+<a href="<?=base_url?>categoria/crear" class="button-create">
     Crear categoria
 </a>
 

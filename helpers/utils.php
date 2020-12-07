@@ -45,7 +45,8 @@ class Utils{
     public static function statsCarrito(){
         $stats = array(
             'count' => 0,
-            'total' => 0
+            'total' => 0,
+            'unidades' => 0
         );
         
         if(isset($_SESSION['carrito'])){
@@ -53,9 +54,12 @@ class Utils{
             
             foreach($_SESSION['carrito'] as $producto){
                 $stats['total'] += $producto['precio']*$producto['unidades'];
+                $stats['unidades'] += $producto['unidades'];
                 
             }
+            
         }
+        
         return $stats;
     }
     

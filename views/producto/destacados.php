@@ -5,6 +5,7 @@ ini_set('display_errors', '1');
 
 <h1>Algunos de nuestros productos</h1>
 
+<div class="global">
 <?php while($product = $productos->fetch_object()):  ?>
 
 <div class="product">
@@ -22,7 +23,7 @@ ini_set('display_errors', '1');
 </div>
 
 <?php endwhile; ?>
-
+</div>
 
 
 
