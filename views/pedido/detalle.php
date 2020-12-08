@@ -6,14 +6,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
-
+<div class="detalle">
     <?php if(isset($pedido)): ?>
 
    
         
         <?php if(isset($_SESSION['admin'])): ?>
             <h3>Cambiar Estado del pedido</h3>
-            <form action="<?=base_url?>pedido/estado" method="POST">
+            <br/>
+            <form class="statep" action="<?=base_url?>pedido/estado" method="POST">
                 <input type="hidden" value="<?=$pedido->id?>" name="pedido_id"/>
                 <select name="estado">
                     <option value="confirm" <?=$pedido->estado=="confirm"? 'selected': '';?>>Pendiente</option>
@@ -41,9 +42,12 @@ ini_set('display_errors', '1');
         Estado: <?=Utils::showStatus($pedido->estado)?><br/>
         Número del pedido: <?=$pedido->id?><br/>
         Total a pagar: $ <?=$pedido->coste?><br/>
+        <br/>
         Productos: 
+</div>
         
-        <table>
+    <div class="table-content">
+    <table class="tableC">
             <tr>
                 <th>Imagen</th>
                 <th>Nombre</th>
@@ -73,7 +77,7 @@ ini_set('display_errors', '1');
                 </tr>
             <?php endwhile; ?>
         </table>    
-            
+    </div>        
         
       
     <?php endif; ?>

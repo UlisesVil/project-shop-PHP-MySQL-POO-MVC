@@ -6,21 +6,22 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
 
-<a href="<?=base_url?>categoria/crear" class="button-create">
+<a href="<?=base_url?>categoria/crear" class="button-createp">
     Crear categoria
 </a>
 
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-    </tr>
-    <?php  while($cat = $categorias->fetch_object()): ?>
+<div class="table-content">
+    <table class="tableC2">
         <tr>
-            <td><?=$cat->id;?></td>
-            <td><?=$cat->nombre;?></td>
-            
+            <th>ID</th>
+            <th>Nombre</th>
         </tr>
-    <?php endwhile; ?>
-</table>
+        <?php  while($cat = $categorias->fetch_object()): ?>
+            <tr>
+                <td><?=$cat->id;?></td>
+                <td><?=$cat->nombre;?></td>
+
+            </tr>
+        <?php endwhile; ?>
+    </table>
+</div>

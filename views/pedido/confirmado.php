@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 ?>
 
 <?php if (isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'complete'): ?>
-
+<div class="confirm">
     <h1>Tu pedido ha sido confirmado</h1>
     <p>
         Tu pedido ha sido guardado con exito, una vez que realices la transferencia 
@@ -19,7 +19,9 @@ ini_set('display_errors', '1');
         Número del pedido: <?=$pedido->id?><br/>
         Total a pagar: $ <?=$pedido->coste?><br/>
         Productos: 
-        <table>
+</div>       
+    <div class="table-content">
+    <table class="tableC">
             <tr>
                 <th>Imagen</th>
                 <th>Nombre</th>
@@ -49,7 +51,7 @@ ini_set('display_errors', '1');
                 </tr>
             <?php endwhile; ?>
         </table>    
-            
+        </div>     
         
       
     <?php endif; ?>

@@ -9,6 +9,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de camisetas</title>
     <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 <div id="container">

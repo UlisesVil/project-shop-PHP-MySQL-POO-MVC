@@ -5,12 +5,7 @@ ini_set('display_errors', '1');
 
 <h1>Registrarse</h1>
 
-<?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
-    <strong class="alert_green">Registro completado correctamente!!!</strong>
-<?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed'): ?>
-    <strong class="alert_red">Registro Fallido introduce bien los datos</strong>
-<?php endif; ?>
-<?php Utils::deleteSession('register'); ?>
+
 
 <div class="form_container">
 

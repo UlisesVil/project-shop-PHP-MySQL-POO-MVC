@@ -9,8 +9,8 @@ ini_set('display_errors', '1');
     <h1>Mis Pedidos</h1>
 <?php endif; ?>
 
-
-<table>
+<div class="tablecontent2">
+        <table class="tableC">
     <tr>
         <th>N° Pedido</th>
         <th>Coste</th>
@@ -38,5 +38,6 @@ ini_set('display_errors', '1');
             
         </tr>
     <?php endwhile; ?>
+        </div>
 
 </table>

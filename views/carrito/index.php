@@ -55,6 +55,8 @@ ini_set('display_errors', '1');
     </table>
 </div>
 
+
+<div class="buttonsC">
     <div class="delete-carrito">
         <a href="<?=base_url?>carrito/delete_all" class="button button-carrito button-red">Vaciar carrito</a>
     </div>
@@ -62,8 +64,10 @@ ini_set('display_errors', '1');
     <div class="total-carrito">
         <?php $stats = Utils::statsCarrito();?>
         <h3>Precio total: $ <?=$stats['total']?></h3>
+        <a href="<?=base_url?>" class="button-create">Seguir Comprando</a>
         <a href="<?=base_url?>pedido/hacer" class="button-create">Hacer pedido</a>
     </div>
+</div>
 <?php else: ?>
 <p>El carrito esta vacio añade algun producto</p>
     

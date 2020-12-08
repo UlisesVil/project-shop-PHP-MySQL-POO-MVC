@@ -5,11 +5,10 @@ ob_start();
 
     require_once 'models/usuario.php';
 
-
     class UsuarioController{
+        
         public function index(){
             require_once 'views/usuario/registro.php';
-            
         }
         
         public function registro(){
@@ -17,6 +16,7 @@ ob_start();
         }
         
         public function save() {
+            
             if (isset($_POST)) {
 
                 $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
@@ -35,6 +35,18 @@ ob_start();
 
                     if ($save) {
                         $_SESSION['register'] = "complete";
+                        $identity = $usuario->login();
+                        
+                            if($identity && is_object($identity)){
+                                $_SESSION['identity'] = $identity;
+
+                                if($identity->rol == 'admin'){
+                                    $_SESSION['admin'] = true;
+                                }
+                            }else{
+                                $_SESSION['error_login'] = "Identificacion Fallida !!";
+                            }
+            
                     } else {
                         $_SESSION['register'] = "failed";
                     }
@@ -44,55 +56,51 @@ ob_start();
             } else {
                 $_SESSION['register'] = "failed";
             }
-    header("Location:" . base_url . 'usuario/registro');
-    //require_once 'views/usuario/registro.php';
-        }
+         
+        header("Location:" . base_url);
+    }
 
-        public function login(){
+    public function login(){
 
-            if(isset($_POST)){
+        if(isset($_POST)){
 
-                $usuario = new Usuario();
-                $usuario->setEmail($_POST['email']);
-                $usuario->setPassword($_POST['password']);
-            
-                $identity = $usuario->login();
-                
+            $usuario = new Usuario();
+            $usuario->setEmail($_POST['email']);
+            $usuario->setPassword($_POST['password']);
+
+            $identity = $usuario->login();
+
             if($identity && is_object($identity)){
                 $_SESSION['identity'] = $identity;
-                
+
                 if($identity->rol == 'admin'){
                     $_SESSION['admin'] = true;
                 }
             }else{
                 $_SESSION['error_login'] = "Identificacion Fallida !!";
             }
-                
-            }
-    header("Location:".base_url);
-    //require_once 'views/wellcome/index.php';
-    
         }
-        
-        public function logout(){
-            
-            if(isset($_SESSION['identity'])){
-            unset($_SESSION['identity']);
-            }
-            if(isset($_SESSION['admin'])){
-            unset($_SESSION['admin']);
-            }
-            if(isset($_SESSION['admin'])){
-            unset($_SESSION['admin']);
-            }
-            if(isset($_SESSION['carrito'])){
-            unset($_SESSION['carrito']);
-            }
-            
-           
-            
-    header("Location:".base_url);
-        }
-        
+        header("Location:".base_url);
+
     }
+        
+    public function logout(){
+
+        if(isset($_SESSION['identity'])){
+            unset($_SESSION['identity']);
+        }
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
+        if(isset($_SESSION['carrito'])){
+            unset($_SESSION['carrito']);
+        }
+        
+        header("Location:".base_url);
+    }
+        
+}
 ob_end_flush();

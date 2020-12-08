@@ -3,6 +3,16 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
 
+
+<?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete'): ?>
+    <div class="welcomemessage">
+        <strong class="alert_green">Registro completado correctamente!!!</strong>
+        <h2>Bienvenido: <?=$_SESSION['identity']->nombre?> <?=$_SESSION['identity']->apellidos?></h2>
+    </div>
+<?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed'): ?>
+    <div class="alert"><strong class="alert_red">Registro Fallido introduce bien los datos</strong></div>
+<?php endif; ?>
+<?php Utils::deleteSession('register'); ?>
 <h1>Algunos de nuestros productos</h1>
 
 <div class="global">

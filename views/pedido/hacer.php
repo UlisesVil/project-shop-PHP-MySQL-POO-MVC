@@ -5,6 +5,8 @@ ini_set('display_errors', '1');
 
 <?php if (isset($_SESSION['identity'])): ?>
     <h1>Hacer pedido</h1>
+    
+    <div class="hpedido">    
     <p>
         <a href="<?= base_url ?>carrito/index">Ver los productos y precio del pedido</a>
     </p>
@@ -28,4 +30,5 @@ ini_set('display_errors', '1');
     <h1>Necesitas estar identificado</h1>
     <h1>Necesitas estar logueado en la Web para poder realizar tu pedido.</h1>
 <?php endif; ?>
+</div>
 
