@@ -9,7 +9,8 @@ ini_set('display_errors', '1');
 ?>
 
 <?php if(isset($_SESSION['carrito']) && count($_SESSION['carrito']) >= 1):?>
-    <table>
+<div class="table-content">
+    <table class="tableC">
         <tr>
             <th>Imagen</th>
             <th>Nombre</th>
@@ -52,6 +53,7 @@ ini_set('display_errors', '1');
         <?php endforeach; ?>
 
     </table>
+</div>
 
     <div class="delete-carrito">
         <a href="<?=base_url?>carrito/delete_all" class="button button-carrito button-red">Vaciar carrito</a>

@@ -53,12 +53,18 @@ a:hover{
     color:red;
 }
 
-table{
-    text-align: center;
-    width:100%; 
-    border-bottom: 1px solid #ccc;
-    
+.table-content{
+    width:100%;
+    overflow: hidden;
+    overflow-x: auto;
+    align-items: center;
 }
+.tableC{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    min-width: 660px;   
+    margin: auto;
+   }
 
 
 
@@ -285,6 +291,23 @@ button, .button{
         
 }
 
+.buttonInd{
+    display: block;
+    border-radius: 10px;
+    width: 200px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family: grupporegular;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
 label{
     font-family: grupporegular;
     font-size: 15px;
@@ -314,6 +337,20 @@ table td a{
     background: #0ec5d8;
     color: black !important;
 }
+
+.buttonInd:hover, .button-create:hover{
+    background: #0ec5d8;
+    font-weight: bold;
+    color: black !important;
+}
+
+.button-create:hover{
+    background: black;
+    font-weight: bold;
+    color: white !important;
+}
+
+
 
 label,
 input [type="button"],
@@ -622,19 +659,72 @@ button{
     }
     
     #lateral .block_aside{
-    width: 200px;
-    padding: 10px;
-    margin: 0px auto;
-    /*border: 1px solid black;*/
-}
+        width: 200px;
+        padding: 10px;
+        margin: 0px auto;
+        /*border: 1px solid black;*/
+    }
     
     #central{
         width: 100%;
         padding: 0px
-            
+    }
+    
+    .button-create{
+        margin-right: 20px;
     }
 
 
 
 }
 
+@media screen and (max-width: 823px){
+    .delete-carrito{
+        float: none;
+        margin: 20px auto;
+    }
+    .delete-carrito a{
+        margin: auto;
+        
+    }
+   
+    .total-carrito{
+        display: flex;
+        flex-direction: column;
+        float: none;
+        margin: 0px auto;
+        text-align: center;
+        justify-content: center;
+        
+    }
+    .button-create{
+        margin: 10px auto;
+    }
+    
+    
+    
+}
+
+
+@media screen and (max-width: 585px){
+    
+    .data{
+        text-align: center;
+    }
+    
+    #detail-product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+
+    .data .buttonInd{
+        width: 150px;
+        text-decoration: none;
+        text-align: center;
+        
+    }
+    
+    
+}
