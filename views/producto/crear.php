@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 ?>
 
 <?php if(isset($edit)&& isset($pro) && is_object($pro)):?>
-    <h1>Editar Producto <?= $pro->nombre ?></h1>
+    <h1>Edit Product <?= $pro->nombre ?></h1>
     <?php $url_action = base_url."producto/save&id=".$pro->id;?>
 <?php else: ?>
     <h1>Crear Nuevos Productos</h1>
@@ -18,19 +18,19 @@ ini_set('display_errors', '1');
     <form action="<?=$url_action?>" method="POST" enctype="multipart/form-data">
         
         <!--enctype="multipart/form-data" permite enviar ficheros en el formulario-->
-        <label for="nombre">Nombre</label>
+        <label for="nombre">Name</label>
         <input type="text" name="nombre" value="<?= isset($pro)&& is_object($pro)? $pro->nombre : ""; ?>" required/>
 
-        <label for="descripcion">Descripcion</label>
+        <label for="descripcion">Description</label>
         <textarea type="text" name="descripcion"  required> <?= isset($pro)&& is_object($pro)? $pro->descripcion : ""; ?></textarea>
 
-        <label for="precio">Precio</label>
+        <label for="precio">Price</label>
         <input type="text" name="precio" value="<?= isset($pro)&& is_object($pro)? $pro->precio : ""; ?>" required/>
 
         <label for="stock">Stock</label>
         <input type="number" name="stock" value="<?= isset($pro)&& is_object($pro)? $pro->stock : ""; ?>" required/>
 
-        <label for="categoria">Categoria</label>
+        <label for="categoria">Category</label>
         <?php $categorias = Utils::showCategorias(); ?>
         <select name = 'categoria'>
             <?php  while($cat = $categorias->fetch_object()): ?>
@@ -40,22 +40,24 @@ ini_set('display_errors', '1');
             <?php endwhile; ?>
         </select>
 
-        <label for="imagen">Imagen</label>
-            <?php if (isset($pro)&& is_object($pro) && !empty($pro->imagen)):?>
         
-        <img src="<?=base_url?>uploads/images/<?=$pro->imagen?>" class="thumb">
-            <?php endif; ?>
-        
-        
-        <span class="inputfileup">
-            <input type="file" name="inputfileup" id="inputfileup" class="fileup"/>
-        </span>
-        <label for="inputfileup">
-            <div class="indicador"><span>Subir Imagen</span></div>
-        </label>
+        <div class="uploadImage">
+            
+            <label for="imagen">Image:</label>
+                <?php if (isset($pro)&& is_object($pro) && !empty($pro->imagen)):?>
 
-        <input type="submit" value="Guardar" />
+            <img src="<?=base_url?>uploads/images/<?=$pro->imagen?>" class="thumb">
+                <?php endif; ?>
+<br/>
+            <span class="inputfileup">
+                <input type="file" name="inputfileup" id="inputfileup" class="fileup"/>
+            </span>
+            <label for="inputfileup">
+                <div class="indicador"><span>Upload Image</span></div>
+            </label>
 
+            <input type="submit" value="Save" />
+        </div>
 
     </form>
  </div>

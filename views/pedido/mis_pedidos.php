@@ -4,18 +4,18 @@ ini_set('display_errors', '1');
 ?>
 
 <?php if (isset($gestion)): ?>
-    <h1>Gestionar Pedidos</h1>
+    <h1>Manage Orders</h1>
 <?php else: ?>
-    <h1>Mis Pedidos</h1>
+    <h1>My Orders</h1>
 <?php endif; ?>
 
 <div class="tablecontent2">
         <table class="tableC">
     <tr>
-        <th>N° Pedido</th>
-        <th>Coste</th>
-        <th>Fecha</th>
-        <th>Estado</th>
+        <th># Order</th>
+        <th>Cost</th>
+        <th>Date</th>
+        <th>Status</th>
     </tr>
 
     <?php 
@@ -26,7 +26,7 @@ ini_set('display_errors', '1');
                 <a href="<?=base_url?>pedido/detalle&id=<?=$ped->id?>"><?=$ped->id?></a>
             </td>
             <td>
-                $<?= $ped->coste ?>
+                $ <?= $ped->coste ?>
             </td>
             <td>
                 <?= $ped->fecha ?>

@@ -17,8 +17,8 @@ ini_set('display_errors', '1');
         
         <div class="data">
             <p class="description"><?= $product->descripcion ?></p>
-            <p class="price"><?= $product->precio ?> USD</p>
-            <a href="<?=base_url?>carrito/add&id=<?=$product->id?>" class="buttonInd">Comprar</a>
+            <p class="price">$ <?= $product->precio ?> USD</p>
+            <a href="<?=base_url?>carrito/add&id=<?=$product->id?>" class="button">Add to Cart</a>
         </div>
     </div>
 

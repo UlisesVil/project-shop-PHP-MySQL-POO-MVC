@@ -64,15 +64,15 @@ class Utils{
     }
     
     public static function showStatus($status){
-        $value = 'Pendiente';
+        $value = 'Pending';
         if($status == 'confirm'){
-            $value = 'Pendiente';
+            $value = 'Pending';
         }elseif($status == 'preparation'){
-            $value = 'En preparacion';
+            $value = 'Preparing';
         }elseif($status == 'ready'){
-            $value = 'Preparado para enviar';
+            $value = 'Ready to Ship';
         }elseif($status == 'sended'){
-            $value = 'Enviado';
+            $value = 'Sended';
         }
         
         return $value;

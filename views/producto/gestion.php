@@ -3,23 +3,23 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 ?>
 
-<h1>Gestion de Productos</h1>
+<h1>Manage Products</h1>
 
 <a href="<?=base_url?>producto/crear" class="button-createp">
-    Crear Producto
+    Create Product
 </a>
 
 <?php if(isset ($_SESSION['producto']) && $_SESSION['producto'] == 'complete'): ?>
-<div class="alert"><strong class="alert_green">El producto se ha creado correctamente</strong></div>
+<div class="alert"><strong class="alert_green">The product has been created successfully</strong></div>
 <?php elseif(isset ($_SESSION['producto']) && $_SESSION['producto'] != 'complete'): ?>
-<div class="alert"><strong class="alert_red">El producto NO se ha creado correctamente</strong></div>
+<div class="alert"><strong class="alert_red">The product has NOT been created correctly</strong></div>
 <?php endif; ?>
 <?php Utils::deleteSession('producto'); ?>  
 
 <?php if(isset ($_SESSION['delete']) && $_SESSION['delete'] == 'complete'): ?>
-<div class="alert"><strong class="alert_green">El producto se ha ELIMINADO correctamente</strong></div>
+<div class="alert"><strong class="alert_green">The product has been DELETED correctly</strong></div>
 <?php elseif(isset ($_SESSION['delete']) && $_SESSION['delete'] != 'complete'): ?>
-<div class="alert"><strong class="alert_red">El producto NO se ha ELIMINADO correctamente</strong></div>
+<div class="alert"><strong class="alert_red">The product has NOT been REMOVED correctly</strong></div>
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>     
     
@@ -27,10 +27,10 @@ ini_set('display_errors', '1');
         <table class="tableC">
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
+                <th>Name</th>
+                <th>Price</th>
                 <th>Stock</th>
-                <th>Acciones</th>
+                <th>Actions</th>
             </tr>
             <?php  while($pro = $productos->fetch_object()): ?>
                 <tr>
@@ -39,9 +39,8 @@ ini_set('display_errors', '1');
                     <td><?=$pro->precio;?></td>
                     <td><?=$pro->stock;?></td>
                     <td>
-                        <a href="<?=base_url?>producto/editar&id=<?=$pro->id?>" class="button button-gestion ">Editar</a>
-                        <a href="<?=base_url?>producto/eliminar&id=<?=$pro->id?>" class="button button-gestion button-red">Eliminar</a>
-                        <!--como el id es el tercer parametro get se usa & en lugar de ? -->
+                        <a href="<?=base_url?>producto/editar&id=<?=$pro->id?>" class="button-gestion ">Edit</a>
+                        <a href="<?=base_url?>producto/eliminar&id=<?=$pro->id?>" class="button-gestion button-red">Delete</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

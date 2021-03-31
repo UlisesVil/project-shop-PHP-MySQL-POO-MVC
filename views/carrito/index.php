@@ -1,7 +1,7 @@
 
 
 
-<h1>Carrito de la compra</h1>
+<h1>Shopping cart</h1>
 
 <?php
 error_reporting(E_ALL);
@@ -12,11 +12,11 @@ ini_set('display_errors', '1');
 <div class="table-content">
     <table class="tableC">
         <tr>
-            <th>Imagen</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Unidades</th>
-            <th>Eliminar</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Units</th>
+            <th>Delete</th>
         </tr>
 
         <?php
@@ -36,17 +36,17 @@ ini_set('display_errors', '1');
                     <a href="<?= base_url ?>producto/ver&id=<?=$producto->id?>"><?= $producto->nombre ?></a>
                 </td>
                 <td>
-                    <?= $producto->precio ?>
+                    $ <?= $producto->precio ?>
                 </td>
                 <td>
                     <div class="updown-unidades">
                         <a href="<?=base_url?>carrito/up&index=<?=$indice?>" class="button plus">+</a>
-                        <?= $elemento['unidades'] ?>
+                        <div class="units"><?= $elemento['unidades'] ?></div>
                         <a href="<?=base_url?>carrito/down&index=<?=$indice?>" class="button min">-</a>
                     </div>
                 </td>
                 <td>
-                    <a href="<?=base_url?>carrito/delete&index=<?=$indice?>" class="button button-carrito button-red">Quitar Producto</a>
+                    <a href="<?=base_url?>carrito/delete&index=<?=$indice?>" class="button-carrito button-red">Delete Product</a>
                 </td>
 
             </tr>
@@ -58,17 +58,17 @@ ini_set('display_errors', '1');
 
 <div class="buttonsC">
     <div class="delete-carrito">
-        <a href="<?=base_url?>carrito/delete_all" class="button button-carrito button-red">Vaciar carrito</a>
+        <a href="<?=base_url?>carrito/delete_all" class="button-carrito button-red">Empty cart</a>
     </div>
 
     <div class="total-carrito">
         <?php $stats = Utils::statsCarrito();?>
-        <h3>Precio total: $ <?=$stats['total']?></h3>
-        <a href="<?=base_url?>" class="button-create">Seguir Comprando</a>
-        <a href="<?=base_url?>pedido/hacer" class="button-create">Hacer pedido</a>
+        <h3>Total: $ <?=$stats['total']?></h3>
+        <a href="<?=base_url?>" class="button-create">Keep buying</a>
+        <a href="<?=base_url?>pedido/hacer" class="button-create">Make an order</a>
     </div>
 </div>
 <?php else: ?>
-<p>El carrito esta vacio añade algun producto</p>
+<p class="emptyWarn">The cart is empty add any <a class="toMain" href="<?=base_url?>">product</a></p>
     
 <?php endif; ?>

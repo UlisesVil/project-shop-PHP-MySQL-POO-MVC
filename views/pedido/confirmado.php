@@ -5,28 +5,29 @@ ini_set('display_errors', '1');
 
 <?php if (isset($_SESSION['pedido']) && $_SESSION['pedido'] == 'complete'): ?>
 <div class="confirm">
-    <h1>Tu pedido ha sido confirmado</h1>
+    <h1>Your order has been confirmed</h1>
     <p>
-        Tu pedido ha sido guardado con exito, una vez que realices la transferencia 
-        bancaria a la cuenta 12233445566 con el coste del pedido, sera procesado y enviado.
+        Your order has been saved successfully, once you make the transfer to the
+        bank account 12233445566 with the cost of the order, it will be processed and sent.
     </p>
     
     <br/>
     <?php if(isset($pedido)): ?>
-        <h3>Datos del pedido:</h3>
+        <h3>Order Data:</h3>
         
         <br/>
-        Número del pedido: <?=$pedido->id?><br/>
-        Total a pagar: $ <?=$pedido->coste?><br/>
-        Productos: 
+        Order Number: <?=$pedido->id?><br/>
+        Total to Pay: $ <?=$pedido->coste?><br/>
+        <br/>
+        <h3>Products:</h3> 
 </div>       
     <div class="table-content">
     <table class="tableC">
             <tr>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Unidades</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Units</th>
             </tr>
             <?php while ($producto = $productos->fetch_object()): ?>
 

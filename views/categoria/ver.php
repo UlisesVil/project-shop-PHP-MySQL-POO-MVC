@@ -6,7 +6,7 @@ ini_set('display_errors', '1');
 <?php if (isset($categoria)): ?>
     <h1><?= $categoria->nombre ?></h1>
     <?php if ($productos->num_rows == 0): ?>
-        <p>No hay productos Para Mostrar</p>
+        <p>There are not products to show</p>
     <?php else: ?>  
 
         <div class="global">
@@ -15,15 +15,17 @@ ini_set('display_errors', '1');
             <div class="product">
                 <a href="<?= base_url ?>producto/ver&id=<?= $product->id ?>">
                     <?php if ($product->imagen != null): ?>
-                        <img src="<?= base_url ?>uploads/images/<?= $product->imagen ?>"/>
+                    <div class="imgMain">
+                        <img class="imgProduct" src="<?= base_url ?>uploads/images/<?= $product->imagen ?>"/>
+                    </div>
                     <?php else: ?>
                         <img src="<?= base_url ?>assets/img/camiseta.png"/>
                     <?php endif; ?>    
 
                     <h2><?= $product->nombre ?></h2>
                 </a>
-                <p><?= $product->precio ?> Euros</p>
-                <a href="<?= base_url ?>carrito/add&id=<?=$product->id?>" class="button">Comprar</a>
+                <p>$ <?= $product->precio ?> USD</p>
+                <a href="<?= base_url ?>carrito/add&id=<?=$product->id?>" class="button">Add to Cart</a>
             </div>
 
         <?php endwhile; ?>
@@ -31,7 +33,7 @@ ini_set('display_errors', '1');
 
     <?php endif; ?>
 <?php else: ?>
-    <h1>La categoria no existe</h1>
+    <h1>The category does not exist</h1>
 <?php endif; ?>
 
 

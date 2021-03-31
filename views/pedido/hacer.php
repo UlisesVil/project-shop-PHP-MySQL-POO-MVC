@@ -4,31 +4,31 @@ ini_set('display_errors', '1');
 ?>
 
 <?php if (isset($_SESSION['identity'])): ?>
-    <h1>Hacer pedido</h1>
+    <h1>Make an order</h1>
     
     <div class="hpedido">    
     <p>
-        <a href="<?= base_url ?>carrito/index">Ver los productos y precio del pedido</a>
+        <a href="<?= base_url ?>carrito/index">See products and order price</a>
     </p>
     <br/>
-    <h3>Direccion para el envio:</h3>
+    <h3>Shipping address:</h3>
     
     <form action="<?=base_url?>pedido/add" method="POST">
-        <label for="provincia">Provincia</label>
+        <label for="provincia">Province</label>
         <input type="text" name="provincia" required/>
         
-        <label for="localidad">Localidad</label>
+        <label for="localidad">Location</label>
         <input type="text" name="localidad" required/>
         
-        <label for="direccion">Direccion</label>
+        <label for="direccion">Address</label>
         <input type="text" name="direccion" required/>
         
-        <input type="submit" value="Confirmar Pedido"/>
+        <input type="submit" value="Confirm Order"/>
     </form>
         
 <?php else: ?>
-    <h1>Necesitas estar identificado</h1>
-    <h1>Necesitas estar logueado en la Web para poder realizar tu pedido.</h1>
+    <h1>You need to be Logged In</h1>
+    <h1>You need to be logged into the Web to be able to place your order.</h1>
 <?php endif; ?>
 </div>
 

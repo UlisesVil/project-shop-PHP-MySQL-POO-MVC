@@ -7,52 +7,105 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de camisetas</title>
+    <link rel="icon" type="image/x-icon" href="<?=base_url?>assets/img/favicon.ico">
+    <title>Men's Wear</title>
     <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css">
     <!--jQuery-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <script src="https://kit.fontawesome.com/94235d9528.js" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="<?=base_url?>assets/js/main.js"></script>
 </head>
 <body>
+    
+    
+    
+    <div id="layer" style="display:none;">
+        <div id="navBar" style="display:none;">
+            <i class="fas fa-bars navBarButton"></i>
+            <?php
+            ob_start();
+                $navCategorias = Utils::showCategorias();
+            ob_end_flush();
+            ?>
+            <nav id="menuNav">
+                <ul>
+                    <li>
+                        <a href="<?=base_url?>">Main</a>
+                    </li>
+            <?php
+            ob_start();
+                while($cat = $navCategorias->fetch_object()):
+            ob_end_flush();
+            ?>
+                    <li>
+                        <a href="<?=base_url?>categoria/ver&id=<?=$cat->id?>"><?=$cat->nombre?></a>
+                    </li>
+            <?php
+            ob_start();
+                endwhile;
+            ob_end_flush();
+            ?>
+
+                </ul>
+
+            </nav>
+        </div>  
+    </div>
+    
+    
+    
+    
+    
+    
+    
 <div id="container">
 <!-- CABECERA -->
 <header id="header">
     <div id="logo">
-        <img class="logo" src="<?=base_url?>assets/img/logo.png" alt="Shop Logo"/>
         <a class="linklogo" href="<?=base_url?>">
-            <img class="title" src="<?=base_url?>assets/img/shoptitle.png" alt="Shop Title"/>
+        <img class="logo" src="<?=base_url?>assets/img/logo1.png" alt="Shop Logo"/>
+       
+            <!--<img class="title" src="<?=base_url?>assets/img/shoptitle.png" alt="Shop Title"/>-->
         </a>
     </div>
+    <div class="menu">
+               <!-- MENU -->
+        <?php
+        ob_start();
+            $categorias = Utils::showCategorias();
+        ob_end_flush();
+        ?>
+        <nav id="menu">
+            <ul>
+                <li>
+                    <a href="<?=base_url?>">Main</a>
+                </li>
+        <?php
+        ob_start();
+            while($cat = $categorias->fetch_object()):
+        ob_end_flush();
+        ?>
+                <li>
+                    <a href="<?=base_url?>categoria/ver&id=<?=$cat->id?>"><?=$cat->nombre?></a>
+                </li>
+        <?php
+        ob_start();
+            endwhile;
+        ob_end_flush();
+        ?>
 
+            </ul>
+
+        </nav>
+    </div>
+    <div class="BarButtonContainer">
+        <i class="fas fa-bars toolBarButton" style="display:block;"></i>
+    </div>
 </header>
 
-            <!-- MENU -->
-<?php
-ob_start();
-    $categorias = Utils::showCategorias();
-ob_end_flush();
-?>
-<nav id="menu">
-    <ul>
-        <li>
-            <a href="<?=base_url?>">Inicio</a>
-        </li>
-<?php
-ob_start();
-    while($cat = $categorias->fetch_object()):
-ob_end_flush();
-?>
-        <li>
-            <a href="<?=base_url?>categoria/ver&id=<?=$cat->id?>"><?=$cat->nombre?></a>
-        </li>
-<?php
-ob_start();
-    endwhile;
-ob_end_flush();
-?>
-                    
-    </ul>
-
-</nav>
+ 
 
 
 <div id="content">

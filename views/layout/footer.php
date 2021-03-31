@@ -8,7 +8,7 @@ ini_set('display_errors', '1');
 
             <!-- PIE DE PAGINA -->
             <footer id="footer">
-                <p>Desarrollado por Ulises Villa &copy; <?= date('Y') ?></p>
+                <p>Developed by Ulises Villa &copy; <?= date('Y') ?></p>
             </footer>
         </div>
         <script type="application/javascript">
