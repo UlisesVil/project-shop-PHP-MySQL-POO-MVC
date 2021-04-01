@@ -25,8 +25,8 @@ ini_set('display_errors', '1');
 
         <h3>Shipping Address:</h3>
         <br/>
-            Province: <?=$pedido->provincia?><br/>
-            Location: <?=$pedido->localidad?><br/>
+            State: <?=$pedido->provincia?><br/>
+            City: <?=$pedido->localidad?><br/>
             Address: <?=$pedido->direccion?><br/><br/>
         
         <h3>Order Data:</h3>

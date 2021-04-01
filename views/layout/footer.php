@@ -5,10 +5,8 @@ ini_set('display_errors', '1');
 
 </div>
 </div>
-
-            <!-- PIE DE PAGINA -->
             <footer id="footer">
-                <p>Developed by Ulises Villa &copy; <?= date('Y') ?></p>
+                <p>Developed by <a href="mailto:ulisesvil5@hotmail.com" title="E-mail me">Ulises Villa</a> &copy; <?= date('Y') ?></p>
             </footer>
         </div>
         <script type="application/javascript">

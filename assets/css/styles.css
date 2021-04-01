@@ -684,6 +684,11 @@ button{
 #footer p{
     margin-right: 20px;
 }
+#footer p a{
+    color:#1381ef;
+    text-decoration: none;
+    font-weight: bolder;
+}
 
 /*CARRITO*/
 .delete-carrito{
@@ -1099,6 +1104,8 @@ input[type=file]#inputfileup {
         font-size: 17px;
     }
     
+    
+    
 }
 
 @media screen and (max-width: 585px){
@@ -1124,6 +1131,27 @@ input[type=file]#inputfileup {
     #central h1{
         font-size: 30px;
     }
+    
+    #lateral{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0px;
+        padding-top: 20px;
+        /*border: 1px solid red;*/
+    }
+    #lateral .block_aside{
+        display: block;
+        margin: 5px 10px;
+        padding: 10px;
+        /*border: 1px solid black;*/
+    }
+    #login{
+        margin-left: 10px !important;
+    }
+   
     
     
 }

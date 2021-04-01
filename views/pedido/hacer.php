@@ -14,10 +14,10 @@ ini_set('display_errors', '1');
     <h3>Shipping address:</h3>
     
     <form action="<?=base_url?>pedido/add" method="POST">
-        <label for="provincia">Province</label>
+        <label for="provincia">State</label>
         <input type="text" name="provincia" required/>
         
-        <label for="localidad">Location</label>
+        <label for="localidad">City</label>
         <input type="text" name="localidad" required/>
         
         <label for="direccion">Address</label>
