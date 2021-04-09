@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
 ?>
@@ -41,5 +42,5 @@ if(class_exists($nombre_controlador)){
 }
 
 require_once 'views/layout/footer.php';
-
+ob_end_flush();
 ?>

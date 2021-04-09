@@ -1,8 +1,7 @@
 <?php
-    ob_start();
-    session_start();
+ob_start();
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +30,9 @@
         <div id="navBar" style="display:none;">
             <i class="fas fa-bars navBarButton"></i>
             <?php
-                ob_start();
-                $navCategorias = Utils::showCategorias();
-                ob_end_flush();
+            ob_start();
+            $navCategorias = Utils::showCategorias();
+            ob_end_flush();
             ?>
             <nav id="menuNav">
                 <ul>
@@ -42,7 +41,7 @@
                     </li>
                     <?php
                     ob_start();
-                        while($cat = $navCategorias->fetch_object()):
+                    while($cat = $navCategorias->fetch_object()):
                     ob_end_flush();
                     ?>
                     <li>
@@ -50,7 +49,7 @@
                     </li>
                     <?php
                     ob_start();
-                        endwhile;
+                    endwhile;
                     ob_end_flush();
                     ?>
                 </ul>
@@ -81,7 +80,7 @@
                         </li>
                         <?php
                         ob_start();
-                            while($cat = $categorias->fetch_object()):
+                        while($cat = $categorias->fetch_object()):
                         ob_end_flush();
                         ?>
                         <li>
@@ -89,7 +88,7 @@
                         </li>
                         <?php
                         ob_start();
-                            endwhile;
+                        endwhile;
                         ob_end_flush();
                         ?>
                     </ul>
