@@ -16,7 +16,7 @@ class Pedido{
     private $db;
 
     public function __construct(){
-        $this->db = Database::connect(); /*Conexion base de datos*/
+        $this->db = Database::connect();
     }
     
     public function getId() {
@@ -91,11 +91,6 @@ class Pedido{
         $this->hora = $hora;
     }
 
-    
-
-
-    
-    
     public function getAll(){
         $pedidos = $this->db->query('SELECT * FROM pedidos ORDER BY id DESC;');
         return $pedidos;
@@ -108,71 +103,60 @@ class Pedido{
     
     public function getOneByUser(){
         $sql = "SELECT p.id, p.coste FROM pedidos p "
-                //. "INNER JOIN lineas_pedido lp on lp.pedido_id = p.id " //Funciona igual sin esta linea
-                . "WHERE p.usuario_id = {$this->getUsuario_id()} ORDER BY id DESC LIMIT 1;";
+             . "WHERE p.usuario_id = {$this->getUsuario_id()} ORDER BY id DESC LIMIT 1;";
         $pedido = $this->db->query($sql);
-//        echo $this->db->error;
-//        echo $sql;
-//        die();
         return $pedido->fetch_object();
     }
     
-     public function getAllByUser(){
+    public function getAllByUser(){
         $sql = "SELECT p.* FROM pedidos p "
-                . "WHERE p.usuario_id = {$this->getUsuario_id()} ORDER BY id DESC;";
+             . "WHERE p.usuario_id = {$this->getUsuario_id()} ORDER BY id DESC;";
         $pedido = $this->db->query($sql);
-//        echo $this->db->error;
-//        echo $sql;
-//        die();
         return $pedido;
     }
     
-    
     public function getProductsByPedido($id){
-//        $sql = "SELECT * FROM productos WHERE id IN "
-//                . "(SELECT producto_id FROM lineas_pedido WHERE pedido_id={$id});";
-    
         $sql = "SELECT pr.*, lp.unidades FROM productos pr "
-                . "INNER JOIN lineas_pedido lp ON pr.id = lp.producto_id "
-                . "WHERE lp.pedido_id={$id};";
-                
+             . "INNER JOIN lineas_pedido lp ON pr.id = lp.producto_id "
+             . "WHERE lp.pedido_id={$id};";    
         $productos = $this->db->query($sql);
-//        echo $this->db->error;
-//        echo $sql;
-//        die();
-       return $productos;        
-                
-}
-    
+        return $productos;            
+    }
     
     public function save() {
-
-        $sql = "INSERT INTO pedidos VALUES(null, {$this->getUsuario_id()}, '{$this->getProvincia()}', '{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'confirm', CURDATE(), CURTIME());";
-        //var_dump($sql);
-        //die();
+        $sql = "INSERT INTO pedidos VALUES(
+            null, 
+            {$this->getUsuario_id()}, 
+           '{$this->getProvincia()}', 
+           '{$this->getLocalidad()}', 
+           '{$this->getDireccion()}', 
+            {$this->getCoste()}, 
+           'confirm', 
+            CURDATE(), 
+            CURTIME()
+        );";
         $save = $this->db->query($sql);
-        //echo $this->db->error;
-
         $result = false;
-        if ($save) {
+        if($save){
             $result = true;
         }
         return $result;
     }
-    
     
     public function save_linea() {
         $sql = "SELECT LAST_INSERT_ID() as 'pedido';";
         $query = $this->db->query($sql);
         $pedido_id = $query->fetch_object()->pedido;
-        
         foreach($_SESSION['carrito'] as $elemento){
             $producto = $elemento['producto'];
-            
-            $insert = "INSERT INTO lineas_pedido VALUES(NULL, {$pedido_id}, {$producto->id}, {$elemento['unidades']})";
+            $insert = "INSERT INTO lineas_pedido VALUES(
+                NULL, 
+                {$pedido_id}, 
+                {$producto->id}, 
+                {$elemento['unidades']}
+            )";
             $save = $this->db->query($insert);
         }
-        
         $result = false;
         if ($save) {
             $result = true;
@@ -180,23 +164,14 @@ class Pedido{
         return $result;
     }
     
-   
-    public function edit(){
-                        
+    public function edit(){            
         $sql = "UPDATE pedidos SET estado = '{$this->getEstado()}' ";
         $sql .= " WHERE id={$this->getId()};";
-        //var_dump($sql);
-        
         $save = $this->db->query($sql);
-        //echo $this->db->error;
-        //die();
         $result = false;
-        if ($save) {
+        if($save){
             $result = true;
         }
-
         return $result;
     }
-     
-    
 }    

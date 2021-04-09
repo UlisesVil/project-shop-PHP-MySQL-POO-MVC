@@ -3,8 +3,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-
-
 class Usuario{
     private $id;
     private $nombre;
@@ -16,7 +14,7 @@ class Usuario{
     private $db;
 
     public function __construct(){
-        $this->db = Database::connect(); /*Conexion base de datos*/
+        $this->db = Database::connect();
     }
     
     public function getId() {
@@ -76,14 +74,20 @@ class Usuario{
     }
 
     public function save(){
-        $sql = "INSERT INTO usuarios VALUES(NULL, '{$this->getNombre()}', '{$this->getApellidos()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', null);";
+        $sql = "INSERT INTO usuarios VALUES(
+            NULL, 
+           '{$this->getNombre()}', 
+           '{$this->getApellidos()}', 
+           '{$this->getEmail()}', 
+           '{$this->getPassword()}', 
+           'user', 
+            null);"
+        ;
         $save = $this->db->query($sql);
-        
         $result = false;
         if($save){
             $result=true;
         }
-        
         return $result;
     }
     
@@ -91,29 +95,15 @@ class Usuario{
         $result = false;
         $email = $this->email;
         $password = $this->password;
-        
-        
-        //comprobar si existe el usuario
         $sql= "SELECT * FROM usuarios WHERE email = '$email'";
         $login = $this->db->query($sql);
-        
         if($login && $login->num_rows == 1){
             $usuario = $login->fetch_object();
-            
-            //Verificar la contraseña
             $verify = password_verify($password, $usuario->password);
-            
-            
             if($verify){
-                $result = $usuario;    //$usuario es un objeto con los campos de la consulta
+                $result = $usuario;
             }
         }
-        
         return $result;
     }
-    
-    
-    
-    
-    
 }

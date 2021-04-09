@@ -1,0 +1,179 @@
+.button{
+    background: rgba(0,45,90,.7);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: white !important;
+    text-decoration: none;
+}
+
+.button:hover, 
+input[type="submit"]:hover, 
+.button-createp:hover{
+    background: rgba(51,0,90,.5);
+    border-radius: 10px;
+    border: 3px solid rgba(51,0,90,1);
+    color: white !important;
+    letter-spacing: 2px;
+}
+
+.buttonInd:hover, 
+.button-create:hover{
+    background: black;
+    font-weight: bold;
+    color: black !important;
+}
+
+.button-create:hover{
+    background: black;
+    font-weight: bold;
+    color: white !important;
+}
+
+label,
+input [type="button"],
+input[type="submit"],
+button{
+    display: block;
+    margin-top: 10px;
+}
+
+.button-small{
+    width: 120px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-gestion{
+    display: block;
+    width: 60px;
+    padding: 5px 10px;
+    margin: 5px auto;
+    cursor: pointer;
+    font-family: grupporegular;
+    font-size: 17px;
+    color: white;
+    letter-spacing: 1px;
+    background: #ce7303;
+    border: none;
+}
+
+.button-red{
+    background: red;
+    border: none;
+    color: white;
+}
+
+.button-gestion:hover{
+    background: black;
+    border: 1px solid green;
+    color: green;
+    padding: 4px 8px;
+}
+
+/*Cart*/
+.delete-carrito{
+    width: 200px;
+    float: left;
+    margin-top: 10px;
+}
+
+.button-delete{
+    display: block;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+    float: left;
+}
+
+.button-carrito{
+    display: block;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    cursor: pointer;
+    font-family: grupporegular;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: none;
+    border: 3px solid red;
+    transition: all 1s;
+}
+
+.button-carrito:hover{
+    text-decoration: none;
+    border: 3px solid red;
+    border-radius: 5px;
+    color: white;
+    background: red;
+}
+
+.buttonsC{
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.button-create{
+    display: block;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    background: black;
+    font-family: grupporegular;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+    font-size: 17px;
+    text-decoration: none;
+    border: 3px solid yellowgreen;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+.button-create:hover{
+    text-decoration: none;
+    border: 3px solid yellowgreen;
+    border-radius: 5px;
+    color: black !important;
+    background: yellowgreen;
+}
+
+.button-createp{
+    display: block;
+    clear: both;
+    float: left;
+    margin: 10px auto 10px 15px;
+    text-decoration: none;
+}
+
+.updown-unidades{
+    display: flex;
+    width: 40%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.updown-unidades .button{
+    display: inline-block;
+    width: 20px;
+    padding: 0px;
+    margin: 3px auto;
+    background: black;
+    color: white !important;
+    font-size: 20px;
+    border-color: yellowgreen;
+}

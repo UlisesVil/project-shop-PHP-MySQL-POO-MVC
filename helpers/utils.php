@@ -9,30 +9,24 @@ class Utils{
             $_SESSION[$name] = null;
             unset($_SESSION[$name]);
         }
-        
         return $name;
     }
     
     public static function isAdmin(){
-        
         if(!isset($_SESSION['admin'])){
-              header("Location:".base_url);
+            header("Location:".base_url);
         }else{
             return true;
         }
-        
     }
     
     public static function isIdentity(){
-        
         if(!isset($_SESSION['identity'])){
-              header("Location:".base_url);
+            header("Location:".base_url);
         }else{
             return true;
         }
-        
     }
-    
     
     public static function showCategorias() {
         require_once 'models/categoria.php';
@@ -40,7 +34,6 @@ class Utils{
         $categorias=$categoria->getAll();
         return $categorias;
     }
-    
     
     public static function statsCarrito(){
         $stats = array(
@@ -51,15 +44,12 @@ class Utils{
         
         if(isset($_SESSION['carrito'])){
             $stats['count'] = count($_SESSION['carrito']);
-            
             foreach($_SESSION['carrito'] as $producto){
                 $stats['total'] += $producto['precio']*$producto['unidades'];
                 $stats['unidades'] += $producto['unidades'];
                 
             }
-            
         }
-        
         return $stats;
     }
     
@@ -74,7 +64,6 @@ class Utils{
         }elseif($status == 'sended'){
             $value = 'Sended';
         }
-        
         return $value;
     }
 }

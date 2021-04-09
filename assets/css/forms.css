@@ -1,0 +1,111 @@
+.form_container{
+    width: 50%;
+    min-width: 250px;
+    margin-left: 30px;
+}
+
+label,
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,textarea{
+    display: block;
+    width: 95%;
+    margin-top: 2px;
+    margin-bottom: 4px;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #1381ef;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,textarea{
+    border: 1px solid #C9C9C9;
+    box-shadow: 0px 0px 2px #ccc inset;
+    background: #111213;
+    padding: 4px 10px;
+    color: white;
+    transition: all 300ms;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus{
+    border: 1px solid #1579b5;
+    color: white;
+}
+
+input [type="button"],
+input[type="submit"],
+button, .button, .button-createp{
+    display: block;
+    width: auto;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    cursor: pointer;
+    font-family: grupporegular;
+    font-size: 17px;
+    color: white;
+    border: 3px solid #004d9a;
+    transition: all 1s;
+}
+
+.uploadImage{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.buttonInd{
+    display: block;
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: black;
+    border: 1px solid black;
+    font-family: grupporegular;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.thumb{
+    width: 200px;
+}
+
+label{
+    font-family: grupporegular;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: bold; 
+}
+
+table tr, table th, table td{
+    font-family: grupporegular;
+    font-size: 18px;
+    font-weight: bold; 
+}
+
+tr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table td a{
+    text-decoration: none;
+    color: yellowgreen;
+}

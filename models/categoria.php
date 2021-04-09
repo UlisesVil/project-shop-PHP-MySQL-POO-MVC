@@ -8,9 +8,8 @@ class Categoria{
     private $nombre;
     private $db;
     
-    
     public function __construct() {
-        $this->db = Database::connect(); /*Conexion base de datos*/
+        $this->db = Database::connect();
     }
     
     public function getId() {
@@ -42,13 +41,11 @@ class Categoria{
     public function save(){
         $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getNombre()}');";
         $save = $this->db->query($sql);
-        
         $result = false;
+
         if($save){
             $result=true;
         }
-        
         return $result;
     }
-
 }

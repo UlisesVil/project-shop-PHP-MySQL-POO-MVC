@@ -1,12 +1,11 @@
 <h1>Order Detail</h1>
 
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
 ?>
-<div class="detalle">
-    <?php if(isset($pedido)): ?>
-
+<?php if(isset($pedido)): ?>
+    <div class="detalle">
         <?php if(isset($_SESSION['admin'])): ?>
             <h3>Change order Status</h3>
             <br/>
@@ -22,13 +21,11 @@ ini_set('display_errors', '1');
             </form>
             <br/>
         <?php endif; ?>
-
         <h3>Shipping Address:</h3>
         <br/>
             State: <?=$pedido->provincia?><br/>
             City: <?=$pedido->localidad?><br/>
             Address: <?=$pedido->direccion?><br/><br/>
-        
         <h3>Order Data:</h3>
         <br/>
             Status: <?=Utils::showStatus($pedido->estado)?><br/>
@@ -36,10 +33,10 @@ ini_set('display_errors', '1');
             Total to pay: $ <?=$pedido->coste?><br/>
         <br/>
         <h3>Products:</h3> 
-</div>
-        
+    </div>
+            
     <div class="table-content">
-    <table class="tableC">
+        <table class="tableC">
             <tr>
                 <th>Image</th>
                 <th>Name</th>
@@ -47,7 +44,6 @@ ini_set('display_errors', '1');
                 <th>Units</th>
             </tr>
             <?php while ($producto = $productos->fetch_object()): ?>
-
                 <tr>
                     <td>
                         <?php if ($producto->imagen != null): ?>
@@ -65,11 +61,10 @@ ini_set('display_errors', '1');
                     <td>
                         <?= $producto->unidades ?>
                     </td>
-
                 </tr>
             <?php endwhile; ?>
         </table>    
-    </div>        
-        
-      
-    <?php endif; ?>
+    </div>   
+<?php else: ?>
+    <h2>The order does not exist</h2>     
+<?php endif; ?>

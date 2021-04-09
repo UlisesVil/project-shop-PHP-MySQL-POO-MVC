@@ -1,98 +1,68 @@
 <?php
-
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 require_once 'models/producto.php';
-
-
                 
 class ProductoController{
     public function index(){
        $producto = new Producto();
-       
        $productos = $producto->getRandom(6);
-       
-       //var_dump($productos->num_rows);
-
-       //Renderizar vista
        require_once 'views/producto/destacados.php';
     }
     
     public function ver(){
         if(isset($_GET['id'])){
             $id=$_GET['id'];
-            
             $producto = new Producto();
             $producto->setId($id);
-            
             $product = $producto->getOne();
         }
         require_once 'views/producto/ver.php';
     }
-    
-    
+
     public function gestion(){
         Utils::isAdmin();
-        
         $producto = new Producto();
         $productos = $producto->getAll();
-         require_once 'views/producto/gestion.php';
+        require_once 'views/producto/gestion.php';
     }
-    
     
     public function crear(){
         Utils::isAdmin();
         require_once 'views/producto/crear.php';
     }
     
-    
-   
-    
     public function save() {
-
         Utils::isAdmin();
-
         if (isset($_POST)) {
-
             $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
             $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
             $precio = isset($_POST['precio']) ? $_POST['precio'] : false;
             $stock = isset($_POST['stock']) ? $_POST['stock'] : false;
-            $categoria = isset($_POST['categoria']) ? $_POST['categoria'] : false; //$imagen = isset($_POST['imagen']) ? $_POST['imagen'] : false;
+            $categoria = isset($_POST['categoria']) ? $_POST['categoria'] : false;
 
-            if ($nombre && $descripcion && $precio && $stock && $categoria) {     //agregar && $imagen
+            if ($nombre && $descripcion && $precio && $stock && $categoria) {
                 $producto = new Producto();
                 $producto->setNombre($nombre);
                 $producto->setDescripcion($descripcion);
                 $producto->setPrecio($precio);
                 $producto->setStock($stock);
                 $producto->setCategoria_id($categoria);
-                //$producto->setImagen($imagen);
-                
-                //GUARDAR IMAGEN PRODUCTO
     
-    if(isset($_FILES['imagen'])){
-        $file = $_FILES['imagen']; //se recoge el nombre imagen que se ha puesto en el campo de la imagen como name=imagen en el formulario
-        $filename = $file['name'];
-        $mimetype = $file['type']; //se refiere a la extencion del archivo si es JPG PNG etc
-        
-
-        if ($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
-    //El archivo puede tener extencion .jfif pero el mimetype .jpeg por lo tanto permite el guardado
-            if (!is_dir('uploads/images')) {
-                mkdir('uploads/images', 0777, true); //true nos genera los directorios de manera recursiva es decir uno dentro de otro
-            }
-            $producto->setImagen($filename);
-            move_uploaded_file($file['tmp_name'], 'uploads/images/' . $filename);
-            //$producto->setImagen($filename);
-        }
-    }    
-
-                //guardarImagen(); //se creo esta funcion por el error de exeso de lineas en public function save()
-                //$file = $_FILES['imagen'];
-                //$filename = $file['name'];
-                //$producto->setImagen($filename); //se recoge el nombre imagen que se ha puesto en el campo de la imagen como name=imagen en el formulario
+                if(isset($_FILES['imagen'])){
+                    $file = $_FILES['imagen'];
+                    $filename = $file['name'];
+                    $mimetype = $file['type'];
+                    
+                    if ($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
+                        if (!is_dir('uploads/images')) {
+                            mkdir('uploads/images', 0777, true);
+                        }
+                        $producto->setImagen($filename);
+                        move_uploaded_file($file['tmp_name'], 'uploads/images/' . $filename);
+                    }
+                }
 
                 if(isset($_GET['id'])){
                     $id = $_GET['id'];
@@ -102,15 +72,15 @@ class ProductoController{
                     $save = $producto->save();
                 }
                 
-                if ($save) {
+                if($save){
                     $_SESSION['producto'] = "complete";
-                } else {
+                }else{
                     $_SESSION['producto'] = "failed";
                 }
-            } else {
+            }else{
                 $_SESSION['producto'] = "failed";
             }
-        } else {
+        }else{
             $_SESSION['producto'] = "failed";
         }
         header("Location:" . base_url . 'producto/gestion');
@@ -121,12 +91,9 @@ class ProductoController{
         if(isset($_GET['id'])){
             $id=$_GET['id'];
             $edit = true;
-            
             $producto = new Producto();
             $producto->setId($id);
-            
             $pro = $producto->getOne();
-            //$nombre = $producto->nombre;
             require_once 'views/producto/crear.php';
         }else{
             header("Location:" . base_url . 'producto/gestion'); 
@@ -134,13 +101,11 @@ class ProductoController{
     }
     
     public function eliminar(){
-      Utils::isAdmin();
-      
+        Utils::isAdmin();
         if(isset($_GET['id'])){
             $id = $_GET['id'];
             $producto = new Producto();
             $producto->setId($id);
-
             $delete=$producto->delete();
             if($delete){
                 $_SESSION['delete'] = 'complete';
@@ -150,31 +115,7 @@ class ProductoController{
         }else{
             $_SESSION['delete'] = 'failed';
         }
-        //var_dump($_GET);
-      header("Location:" . base_url . 'producto/gestion');
+        header("Location:" . base_url . 'producto/gestion');
     }
     
 }
-
-
-
-//function guardarImagen() {//se creo esta funcion por el error de exeso de lineas en public function save()
-//    //GUARDAR IMAGEN PRODUCTO
-//    
-//    if(isset($_FILES['imagen'])){
-//        $file = $_FILES['imagen']; //se recoge el nombre imagen que se ha puesto en el campo de la imagen como name=imagen en el formulario
-//        $filename = $file['name'];
-//        $mimetype = $file['type']; //se refiere a la extencion del archivo si es JPG PNG etc
-//        
-//
-//        if ($mimetype == "image/jpg" || $mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/gif") {
-//    //El archivo puede tener extencion .jfif pero el mimetype .jpeg por lo tanto permite el guardado
-//            if (!is_dir('uploads/images')) {
-//                mkdir('uploads/images', 0777, true); //true nos genera los directorios de manera recursiva es decir uno dentro de otro
-//            }
-//
-//            move_uploaded_file($file['tmp_name'], 'uploads/images/' . $filename);
-//            //$producto->setImagen($filename);
-//        }
-//    }    
-//}

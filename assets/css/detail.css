@@ -1,0 +1,76 @@
+.detalle,.hpedido, .confirm{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    margin: 10px auto;
+    font-size: 20px;
+}
+
+.hpedido a{
+    color:white;
+    font-size: 25px;
+}
+
+.detalle h3, .confirm h3{
+    color: #1381ef;
+}
+
+.statep{
+    width: 50%;
+}
+
+.form_container{
+    width: 100%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.form_container form{
+    min-width: 200px;
+    width: 50%;
+    margin: 10px auto;
+}
+
+.fileup{
+    width: 100%;
+}
+
+input[type=file]#inputfileup {
+    position: absolute;
+    display: block;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+
+label[for="inputfileup"] {
+    display: inline-block;
+    width: fit-content;
+    background-color: black;
+    border: 3px solid #1381ef;
+    padding: 15px !important;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+label[for="inputfileup"]:hover {
+    border: 3px solid red;
+    border-radius: 5px;
+}
+
+.indicador{
+    width: 150px;
+    max-width: 200px;
+    margin: 0px auto;
+    overflow: hidden;
+}

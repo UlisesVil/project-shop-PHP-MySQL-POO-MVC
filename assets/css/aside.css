@@ -1,0 +1,98 @@
+#lateral{
+    width: 18%;
+    min-height: 500px;
+    float: left;
+    padding-top: 42px;
+    margin-left: 10px;
+    background: rgba(0,0,0,0.4);
+}
+
+#lateral .block_aside{
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+#lateral h3{
+    display: block;
+    width: 100%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 15px;
+    font-family: cinzelbold;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1381ef;
+    border-bottom: 2px solid white;
+}
+
+#lateral ul{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#lateral ul li{
+    list-style: square;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.closeCart{
+    float:right;
+    margin-right: 10px;
+}
+
+.closeCart:hover{
+    color: white;
+    text-shadow:0px 0px 10px white;
+}
+
+.cartHide{
+    margin-top: 30px;
+    margin-left: 30px !important;
+    margin-bottom: 20px;
+    color: #1381ef;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.unitsCart{
+    font-family: cinzelbold;
+}
+
+.cartHide:hover{
+    color: white;
+    text-shadow:0px 0px 10px white;
+}
+
+.fa-shopping-cart{
+    margin-left: 5px;
+}
+
+#carrito ul li,
+#login ul li{
+    list-style: none;
+    line-height: 25px;
+}
+
+#carrito ul li a,
+#login ul li a{
+    text-decoration: none;
+    font-family: grupporegular;
+    color: white;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+#carrito ul li a:hover,
+#login ul li a:hover{
+    text-shadow:5px 5px 5px white;
+}
+
+#login{
+    box-sizing: border-box;
+    padding-right: 20px !important;
+}

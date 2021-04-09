@@ -10,7 +10,6 @@ class CarritoController{
     public function index(){
         if(isset($_SESSION['carrito']) && count($_SESSION['carrito']) >= 1){
             $carrito = $_SESSION['carrito'];
-            
         }else{
             $carrito = array();
         }
@@ -18,7 +17,7 @@ class CarritoController{
     }
     
     public function add(){
-        
+
         if(isset($_GET['id'])){
             $producto_id = $_GET['id'];
         } else {
@@ -30,19 +29,16 @@ class CarritoController{
             foreach($_SESSION['carrito'] as $indice=> $elemento){
                 if($elemento['id_producto'] == $producto_id){
                     $_SESSION['carrito'][$indice]['unidades']++;
-                    $counter++;
-                    
+                    $counter++;  
                 }
             }
         }
         
         if(!isset($counter) || $counter == 0){
-            //conseguir producto
             $producto = new producto();
             $producto->setId($producto_id);
             $producto = $producto->getOne();
 
-            //Añadir al carrito
             if(is_object($producto)){
                 $_SESSION['carrito'][]= array(
                     "id_producto" => $producto->id,
@@ -52,7 +48,6 @@ class CarritoController{
                 ); 
             }
         }
-        
         header("Location:".base_url."carrito/index");
     }
     
@@ -74,11 +69,11 @@ class CarritoController{
     
     public function down(){
        if(isset($_GET['index'])){
-           $index = $_GET['index'];
-           $_SESSION['carrito'][$index]['unidades']--;
-           if($_SESSION['carrito'][$index]['unidades'] == 0){
-               unset($_SESSION['carrito'][$index]);
-           }
+            $index = $_GET['index'];
+            $_SESSION['carrito'][$index]['unidades']--;
+            if($_SESSION['carrito'][$index]['unidades'] == 0){
+                unset($_SESSION['carrito'][$index]);
+            }
        }
        header("Location:".base_url."carrito/index");
     }
@@ -87,11 +82,6 @@ class CarritoController{
        unset($_SESSION['carrito']);
        header("Location:".base_url."carrito/index");
     }
-    
-    
-    
 }
-
-
 
 ?>
