@@ -46,4 +46,4 @@
 	</div>
 </aside>
 
-<div id="central"><!--closed in footer.php-->
+<div id="central"><!--tag closed in footer.php-->

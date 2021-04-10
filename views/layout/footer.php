@@ -3,12 +3,12 @@
     ini_set('display_errors', '1');
 ?>
 
-            </div><!--<div id="central"> sidebar.php-->
-        </div><!--<div id="content"> header.php-->
+            </div><!--<div id="central"> tag opened at sidebar.php-->
+        </div><!--<div id="content"> tag opened at header.php-->
         <footer id="footer">
-            <p>Developed by <a href="mailto:ulisesvil5@hotmail.com" title="E-mail me">Ulises Villa</a> &copy; <?= date('Y') ?></p>
+            <p>Developed and Designed by <a href="mailto:ulisesvil5@hotmail.com" title="E-mail me">Ulises Villa</a> &copy; <?= date('Y') ?></p>
         </footer>
-    </div><!--<div id="container">-->
+    </div><!--<div id="container"> tag opened at header.php-->
     <!--Upload Button-->
     <script type="application/javascript">
         $('input[type=file]').change(function(){

@@ -4,5 +4,4 @@
     define("base_url","http://ulisestore.atwebpages.com/");
     define("controller_default","productoController");
     define("action_default","index");
-    
 ?>

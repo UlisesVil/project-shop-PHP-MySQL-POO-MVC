@@ -9,7 +9,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="<?=base_url?>assets/img/favicon.ico">
     <title>Men's Wear</title>
-
     <link rel="stylesheet" href="<?=base_url?>assets/css/error404.css">
     <link rel="stylesheet" href="<?=base_url?>assets/css/header.css">
     <link rel="stylesheet" href="<?=base_url?>assets/css/aside.css">
@@ -57,7 +56,7 @@ session_start();
         </div>  
     </div>
     
-    <div id="container"><!--closed in footer.php-->
+    <div id="container"><!--tag closed in footer.php-->
     
         <header id="header">
             <div id="logo">
@@ -99,4 +98,4 @@ session_start();
             </div>
         </header>
         
-        <div id="content"><!--closed in footer.php-->
+        <div id="content"><!--tag closed in footer.php-->
